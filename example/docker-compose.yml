@@ -6,6 +6,7 @@ services:
       - 8080:80
       - 4040:443
     volumes:
+      - ./certs:/certs
       - ./data:/data
     environment:
       DB_NAME: wordpress

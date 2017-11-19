@@ -14,7 +14,7 @@ docker login
 #  -t "visiblevc/wordpress:$npm_package_version-php7.1" \
 #./php7.1/
 
-docker build \
+docker build --no-cache \
   -t "luxcentric/wordpress:latest" \
   -t "luxcentric/wordpress:latest-php7.0" \
   -t "luxcentric/wordpress:$npm_package_version-php7.0" \

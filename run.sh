@@ -209,7 +209,11 @@ check_certificates() {
     echo "Warning: no certs volume" |& _colorize
     return
   fi
-  echo "Success: found certs volume" |& _colorize
+
+  sed -i "s/\/etc\/ssl\/certs\/ssl-cert-snakeoil\.pem/\/certs\/server\.crt/g" /etc/apache2/sites-available/default-ssl.conf
+  sed -i "s/\/etc\/ssl\/private\/ssl-cert-snakeoil.key/\/certs\/server\.key/g" /etc/apache2/sites-available/default-ssl.conf
+  a2ensite default-ssl.conf
+  echo "Success: configured self-signed certs" |& _colorize
 }
 
 check_database() {
