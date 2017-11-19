@@ -30,3 +30,4 @@ echo "
 Successfully built images with the following tags:"
 
 docker images luxcentric/wordpress --format "{{.Tag}}" | sort -r
+# docker push luxcentric/wordpress
