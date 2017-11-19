@@ -1,16 +1,26 @@
 {
-  "name": "visiblevc-wordpress",
+  "name": "luxcentric-wordpress",
   "version": "0.16.0",
   "description": "A slightly less shitty wordpress development workflow",
   "main": "index.js",
-  "repository": "https://github.com/visiblevc/wordpress-starter.git",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/luxcentric/wordpress-starter.git"
+  },
   "author": "Karel Ledru-Mathe <karel@ledrumathe.com>",
   "maintainers": [
-    "Derek P Sifford <dereksifford@gmail.com>"
+    "Gary Ritchie <gary.t.ritchie@gmail.com>"
   ],
   "license": "MIT",
   "scripts": {
     "build": "./build.sh",
     "update-version": "for file in './php7.0/Dockerfile' './php5.6/Dockerfile' './php7.1/Dockerfile'; do sed -Ei \"s/(version=\\\")(.*)(-)/\\1$npm_package_version\\3/g\" \"$file\"; done && sed -Ei \"s/(wordpress:)(.*)(-)/\\1$npm_package_version\\3/g\" ./example/docker-compose.yml"
+  },
+  "bugs": {
+    "url": "https://github.com/luxcentric/wordpress-starter/issues"
+  },
+  "homepage": "https://github.com/luxcentric/wordpress-starter#readme",
+  "directories": {
+    "example": "example"
   }
 }
