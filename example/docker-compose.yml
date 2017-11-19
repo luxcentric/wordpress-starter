@@ -1,10 +1,10 @@
 version: '3'
 services:
   wordpress:
-    image: visiblevc/wordpress:0.16.0-php7.1
+    image: luxcentric/wordpress:0.16.0-php7.0
     ports:
       - 8080:80
-      - 443:443
+      - 4040:443
     volumes:
       - ./data:/data
     environment:

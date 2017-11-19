@@ -203,6 +203,15 @@ init() {
   chown -R www-data /app/wp-content
 }
 
+check_certificates() {
+  # No certificates found
+  if [[ "$( find /certs -name "server.*" 2>/dev/null | wc -l )" -eq 0 ]]; then
+    echo "Warning: no certs volume" |& _colorize
+    return
+  fi
+  echo "Success: found certs volume" |& _colorize
+}
+
 check_database() {
   local data_path
 
@@ -296,6 +305,9 @@ check_themes() {
 main() {
   h1 "Begin WordPress Installation"
   init
+
+  h2 "Checking certificates"
+  check_certificates
 
   # Wait for MySQL
   # --------------

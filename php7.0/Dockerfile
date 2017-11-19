@@ -49,6 +49,7 @@ RUN curl -s \
     && sed -i 's/AllowOverride None/AllowOverride All/g' /etc/apache2/apache2.conf \
     && echo "ServerName localhost" | tee /etc/apache2/conf-available/fqdn.conf && a2enconf fqdn \
     && a2enmod rewrite expires \
+    && a2enmod ssl \
     && service apache2 restart \
     && mkdir -p /app ~/.wp-cli \
     && rm -fr /var/www/html \
