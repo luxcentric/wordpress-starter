@@ -8,13 +8,13 @@ docker login
 # NOTE: Not building this stack of images concurrently due to a known issue
 # with docker concurrent builds. https://github.com/moby/moby/issues/9656
 
-#docker build \
+#docker build --no-cache \
 #  -t "visiblevc/wordpress:latest" \
 #  -t "visiblevc/wordpress:latest-php7.1" \
 #  -t "visiblevc/wordpress:$npm_package_version-php7.1" \
 #./php7.1/
 
-docker build --no-cache \
+docker build \
   -t "luxcentric/wordpress:latest" \
   -t "luxcentric/wordpress:latest-php7.0" \
   -t "luxcentric/wordpress:$npm_package_version-php7.0" \
