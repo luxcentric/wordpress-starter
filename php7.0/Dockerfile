@@ -1,7 +1,7 @@
 FROM php:7.0-apache
 ENV TERM=xterm
 LABEL maintainer="Gary Ritchie <gary.t.ritchie@gmail.com>" \
-      version="0.16.0-php7.0"
+      version="0.16.1-php7.0"
 
 # Install base requirements & sensible defaults + required PHP extensions
 RUN echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list \
@@ -59,7 +59,8 @@ RUN { \
         echo 'xdebug.remote_autostart=on'; \
         echo 'xdebug.remote_connect_back=off'; \
         echo 'xdebug.remote_handler=dbgp'; \
-        echo 'xdebug.profiler_enable=off'; \
+        echo 'xdebug.profiler_enable=0'; \
+        echo 'xdebug.profiler_enable_trigger=1'; \
         echo 'xdebug.profiler_output_dir="/var/www/html"'; \
         echo 'xdebug.remote_port=9001'; \
         echo 'xdebug.remote_host=172.254.254.254'; \
