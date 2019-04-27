@@ -14,11 +14,19 @@ docker login
 #  -t "visiblevc/wordpress:$npm_package_version-php7.1" \
 #./php7.1/
 
+#docker build \
+#  -t "luxcentric/wordpress:latest" \
+#  -t "luxcentric/wordpress:latest-php7.0" \
+#  -t "luxcentric/wordpress:$npm_package_version-php7.0" \
+#./php7.0/
+
+cp php7.2/Dockerfile .
 docker build \
   -t "luxcentric/wordpress:latest" \
-  -t "luxcentric/wordpress:latest-php7.0" \
-  -t "luxcentric/wordpress:$npm_package_version-php7.0" \
-./php7.0/
+  -t "luxcentric/wordpress:latest-php7.2" \
+  -t "luxcentric/wordpress:$npm_package_version-php7.2" \
+.
+rm ./Dockerfile
 
 #docker build \
 #  -t "visiblevc/wordpress:latest-php5.6" \
@@ -30,4 +38,4 @@ echo "
 Successfully built images with the following tags:"
 
 docker images luxcentric/wordpress --format "{{.Tag}}" | sort -r
-# docker push luxcentric/wordpress
+docker push luxcentric/wordpress
