@@ -20,11 +20,18 @@ docker login
 #  -t "luxcentric/wordpress:$npm_package_version-php7.0" \
 #./php7.0/
 
-cp php7.2/Dockerfile .
+#cp php7.2/Dockerfile .
+#docker build \
+#  -t "luxcentric/wordpress:latest" \
+#  -t "luxcentric/wordpress:latest-php7.2" \
+#  -t "luxcentric/wordpress:$npm_package_version-php7.2" \
+#.
+
+cp php7.3/Dockerfile .
 docker build \
   -t "luxcentric/wordpress:latest" \
-  -t "luxcentric/wordpress:latest-php7.2" \
-  -t "luxcentric/wordpress:$npm_package_version-php7.2" \
+  -t "luxcentric/wordpress:latest-php7.3" \
+  -t "luxcentric/wordpress:$npm_package_version-php7.3" \
 .
 rm ./Dockerfile
 
